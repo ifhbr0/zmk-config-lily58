@@ -1,5 +1,5 @@
 /*
- * Lily58 ZMK v19.2 - source: Lily58_v19_tilde_first.html
+ * Lily58 ZMK v19.3.1 - source: Lily58_v19_tilde_first.html
  * Builder hardware: nice_nano@2.0.0 + lily58_left/lily58_right
  * 6 user layers + 2 internal one-shot Shift overlays. English and Russian.
  * One-shot Shift survives Space through a macro that re-arms the overlay.
@@ -174,7 +174,7 @@
             &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             &trans  &kp Q  &kp Y  &kp U  &kp O  &trans  &kp X  &kp L  &kp D  &kp P  &kp Z  &trans
             &kp B  &hml_short_gui 0 C  &hml LALT I  &hml_short_ctrl 0 E  &hml LSHFT A  &trans  &lt NAV K  &hmr RSHFT H  &hmr_short_ctrl 0 T  &hmr RALT N  &hmr_short_gui 0 S  &kp W
-            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp J  &kp M  &kp G  &kp F  &kp V  &trans  &trans
+            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp J  &kp M  &kp G  &kp F  &kp V  &trans
             &trans  &trans  &trans  &trans  &trans  &kp R  &trans  &trans
         >; };
         game_layer { display-name = "GAME - QWERTY"; bindings = <
