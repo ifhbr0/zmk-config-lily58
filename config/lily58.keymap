@@ -1,5 +1,5 @@
 /*
- * Lily58 ZMK v19 - source: Lily58_v19_tilde_first.html
+ * Lily58 ZMK v19.2 - source: Lily58_v19_tilde_first.html
  * Builder hardware: nice_nano@2.0.0 + lily58_left/lily58_right
  * 6 user layers + 2 internal one-shot Shift overlays. English and Russian.
  * One-shot Shift survives Space through a macro that re-arms the overlay.
@@ -83,7 +83,7 @@
         comma_ru: comma_ru { compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>; bindings = <&kp LS(FSLH)>, <&kp LS(FSLH)>; mods = <(MOD_LSFT | MOD_RSFT)>; };
         period_ru: period_ru { compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>; bindings = <&kp FSLH>, <&kp FSLH>; mods = <(MOD_LSFT | MOD_RSFT)>; };
         slash_en: slash_en { compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>; bindings = <&kp FSLH>, <&kp BSLH>; mods = <(MOD_LSFT | MOD_RSFT)>; };
-        slash_ru: slash_ru { compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>; bindings = <&us_slash>, <&us_backslash>; mods = <(MOD_LSFT | MOD_RSFT)>; };
+        slash_ru: slash_ru { compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>; bindings = <&kp LS(BSLH)>, <&kp BSLH>; mods = <(MOD_LSFT | MOD_RSFT)>; };
         amp_caret: amp_caret { compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>; bindings = <&kp LS(N7)>, <&kp LS(N6)>; mods = <(MOD_LSFT | MOD_RSFT)>; };
         star_pct: star_pct { compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>; bindings = <&kp LS(N8)>, <&kp LS(N5)>; mods = <(MOD_LSFT | MOD_RSFT)>; };
         hash_at: hash_at { compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>; bindings = <&kp LS(N3)>, <&kp LS(N2)>; mods = <(MOD_LSFT | MOD_RSFT)>; };
@@ -128,12 +128,6 @@
         us_gt: us_gt { compatible = "zmk,behavior-macro";
             #binding-cells = <0>; wait-ms = <90>; tap-ms = <35>;
             bindings = <&os_toggle &kp LS(DOT) &os_toggle>; };
-        us_slash: us_slash { compatible = "zmk,behavior-macro";
-            #binding-cells = <0>; wait-ms = <90>; tap-ms = <35>;
-            bindings = <&os_toggle &kp FSLH &os_toggle>; };
-        us_backslash: us_backslash { compatible = "zmk,behavior-macro";
-            #binding-cells = <0>; wait-ms = <90>; tap-ms = <35>;
-            bindings = <&os_toggle &kp BSLH &os_toggle>; };
         sc_en_ctrl: sc_en_ctrl { compatible = "zmk,behavior-macro";
             #binding-cells = <0>; wait-ms = <0>; tap-ms = <25>;
             bindings = <&macro_press &mo SHORT &kp LCTRL>, <&macro_pause_for_release>, <&macro_release &mo SHORT &kp LCTRL>; };
@@ -157,9 +151,9 @@
         >; };
         ru_layer { display-name = "RU - temporary Strannik"; bindings = <
             &bang_ru  &kp LS(N7)  &kp LS(N2)  &paren_lt_ru  &paren_gt_ru  &kp LS(MINUS)  &arrow_ru  &comma_ru  &period_ru  &slash_ru  &kp EQUAL  &kp LS(EQUAL)
-            &kp BSPC  &kp RBKT  &kp E  &kp F  &kp SEMI  &kp DOT  &kp O  &kp V  &kp P  &kp L  &kp U  &star_pct
+            &kp BSPC  &kp M  &kp E  &kp F  &kp SEMI  &kp DOT  &kp O  &kp V  &kp P  &kp L  &kp U  &star_pct
             &kp GRAVE  &hml_ru_gui 0 B  &hml LALT T  &hml_ru_ctrl 0 J  &hml LSHFT R  &lt NUM Z  &lt NAV K  &hmr RSHFT Y  &hmr_ru_ctrl 0 N  &hmr RALT C  &hmr_ru_gui 0 COMMA  &kp W
-            &kp LC(BSPC)  &kp M  &kp SQT  &kp S  &kp G  &kp A  &kp LS(N6)  &kp LS(N4)  &kp Q  &kp H  &kp LBKT  &kp X  &kp I  &none
+            &kp LC(BSPC)  &kp RBKT  &kp SQT  &kp S  &kp G  &kp A  &kp LS(N6)  &kp LS(N4)  &kp Q  &kp H  &kp LBKT  &kp X  &kp I  &none
             &kp TAB  &to_en  &kp RET  &sp_plain  &sl OSR  &kp D  &none  &kp ESC
         >; };
         num_layer { display-name = "NUM"; bindings = <
@@ -198,10 +192,10 @@
             &kp TAB  &to_ru  &kp LS(RET)  &sp_keep_en  &sl OSE  &kp LS(R)  &none  &kp ESC
         >; };
         osr_layer { display-name = "OS Shift RU"; bindings = <
-            &bang_not_ru  &kp LS(N7)  &kp LS(N2)  &us_lt  &us_gt  &kp LS(MINUS)  &arrow_macro_ru  &kp LS(FSLH)  &kp FSLH  &us_backslash  &kp LS(EQUAL)  &kp LS(EQUAL)
-            &kp BSPC  &kp LS(RBKT)  &kp LS(E)  &kp LS(F)  &kp LS(SEMI)  &kp LS(DOT)  &kp LS(O)  &kp LS(V)  &kp LS(P)  &kp LS(L)  &kp LS(U)  &kp LS(N5)
+            &bang_not_ru  &kp LS(N7)  &kp LS(N2)  &us_lt  &us_gt  &kp LS(MINUS)  &arrow_macro_ru  &kp LS(FSLH)  &kp FSLH  &kp BSLH  &kp LS(EQUAL)  &kp LS(EQUAL)
+            &kp BSPC  &kp LS(M)  &kp LS(E)  &kp LS(F)  &kp LS(SEMI)  &kp LS(DOT)  &kp LS(O)  &kp LS(V)  &kp LS(P)  &kp LS(L)  &kp LS(U)  &kp LS(N5)
             &kp LS(GRAVE)  &hml_ru_gui 0 LS(B)  &hml LALT LS(T)  &hml_ru_ctrl 0 LS(J)  &hml LSHFT LS(R)  &lt NUM Z  &lt NAV LS(K)  &hmr RSHFT LS(Y)  &hmr_ru_ctrl 0 LS(N)  &hmr RALT LS(C)  &hmr_ru_gui 0 LS(COMMA)  &kp LS(W)
-            &kp LC(BSPC)  &kp LS(M)  &kp LS(SQT)  &kp LS(S)  &kp LS(G)  &kp LS(A)  &kp LS(N6)  &kp LS(N4)  &kp LS(Q)  &kp LS(H)  &kp LS(LBKT)  &kp LS(X)  &kp LS(I)  &none
+            &kp LC(BSPC)  &kp LS(RBKT)  &kp LS(SQT)  &kp LS(S)  &kp LS(G)  &kp LS(A)  &kp LS(N6)  &kp LS(N4)  &kp LS(Q)  &kp LS(H)  &kp LS(LBKT)  &kp LS(X)  &kp LS(I)  &none
             &kp TAB  &to_en  &kp LS(RET)  &sp_keep_ru  &sl OSR  &kp LS(D)  &none  &kp ESC
         >; };
     };
